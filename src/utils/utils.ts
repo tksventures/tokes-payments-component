@@ -12,6 +12,7 @@ export function format(first: string, middle: string, last: string): string {
 export function uriFormat(payment: Payment, rates: Rates): string {
   return {
     TKS: `https://client.wavesplatform.com/#send/${kAssetIds.TKS}?recipient=${payment.payment_address}&amount=${rates.TKS}`,
+    WAVES: `https://client.wavesplatform.com/#send/${kAssetIds.WAVES}?recipient=${payment.payment_address}&amount=${rates.WAVES}`,
     BTC: `bitcoin:${payment.payment_address}?amount=${rates.BTC}`,
     LTC: `litecoin:${payment.payment_address}?amount=${rates.LTC}`,
     DASH: `dash:${payment.payment_address}?amount=${rates.DASH}`,

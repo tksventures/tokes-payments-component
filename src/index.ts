@@ -1,1 +1,1 @@
-export { TokesPayments as TokesPaymentComponent } from './components/tokes-payments/tokes-payments';
+export { TokesPayments } from './components/tokes-payments/tokes-payments';
