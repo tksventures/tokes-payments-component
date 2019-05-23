@@ -109,43 +109,6 @@ export namespace Components {
     'usd'?: number;
   }
 
-  interface TokesButton {
-    /**
-    * API Key for merchant
-    */
-    'apiKey': string;
-    /**
-    * Reference ID for order
-    */
-    'referenceId': string;
-    /**
-    * URL to lookup payment data
-    */
-    'url': string;
-    /**
-    * Total price in USD for order
-    */
-    'usd': number;
-  }
-  interface TokesButtonAttributes extends StencilHTMLAttributes {
-    /**
-    * API Key for merchant
-    */
-    'apiKey'?: string;
-    /**
-    * Reference ID for order
-    */
-    'referenceId'?: string;
-    /**
-    * URL to lookup payment data
-    */
-    'url'?: string;
-    /**
-    * Total price in USD for order
-    */
-    'usd'?: number;
-  }
-
   interface ModalBanner {
     'active': boolean;
     'metaStyle': string;
@@ -173,6 +136,43 @@ export namespace Components {
     'metaStyle'?: string;
   }
 
+  interface TokesPayments {
+    /**
+    * API Key for merchant
+    */
+    'apiKey': string;
+    /**
+    * Reference ID for order
+    */
+    'referenceId': string;
+    /**
+    * URL to lookup payment data
+    */
+    'url': string;
+    /**
+    * Total price in USD for order
+    */
+    'usd': number;
+  }
+  interface TokesPaymentsAttributes extends StencilHTMLAttributes {
+    /**
+    * API Key for merchant
+    */
+    'apiKey'?: string;
+    /**
+    * Reference ID for order
+    */
+    'referenceId'?: string;
+    /**
+    * URL to lookup payment data
+    */
+    'url'?: string;
+    /**
+    * Total price in USD for order
+    */
+    'usd'?: number;
+  }
+
   interface UnpaidModal {
     'apiKey': string;
     'orderData': Order;
@@ -197,10 +197,10 @@ declare global {
     'CurrencyModal': Components.CurrencyModal;
     'PaidModal': Components.PaidModal;
     'PaymentPortal': Components.PaymentPortal;
-    'TokesButton': Components.TokesButton;
     'ModalBanner': Components.ModalBanner;
     'ModalButton': Components.ModalButton;
     'TokesModal': Components.TokesModal;
+    'TokesPayments': Components.TokesPayments;
     'UnpaidModal': Components.UnpaidModal;
   }
 
@@ -209,10 +209,10 @@ declare global {
     'currency-modal': Components.CurrencyModalAttributes;
     'paid-modal': Components.PaidModalAttributes;
     'payment-portal': Components.PaymentPortalAttributes;
-    'tokes-button': Components.TokesButtonAttributes;
     'modal-banner': Components.ModalBannerAttributes;
     'modal-button': Components.ModalButtonAttributes;
     'tokes-modal': Components.TokesModalAttributes;
+    'tokes-payments': Components.TokesPaymentsAttributes;
     'unpaid-modal': Components.UnpaidModalAttributes;
   }
 
@@ -241,12 +241,6 @@ declare global {
     new (): HTMLPaymentPortalElement;
   };
 
-  interface HTMLTokesButtonElement extends Components.TokesButton, HTMLStencilElement {}
-  var HTMLTokesButtonElement: {
-    prototype: HTMLTokesButtonElement;
-    new (): HTMLTokesButtonElement;
-  };
-
   interface HTMLModalBannerElement extends Components.ModalBanner, HTMLStencilElement {}
   var HTMLModalBannerElement: {
     prototype: HTMLModalBannerElement;
@@ -265,6 +259,12 @@ declare global {
     new (): HTMLTokesModalElement;
   };
 
+  interface HTMLTokesPaymentsElement extends Components.TokesPayments, HTMLStencilElement {}
+  var HTMLTokesPaymentsElement: {
+    prototype: HTMLTokesPaymentsElement;
+    new (): HTMLTokesPaymentsElement;
+  };
+
   interface HTMLUnpaidModalElement extends Components.UnpaidModal, HTMLStencilElement {}
   var HTMLUnpaidModalElement: {
     prototype: HTMLUnpaidModalElement;
@@ -276,10 +276,10 @@ declare global {
     'currency-modal': HTMLCurrencyModalElement
     'paid-modal': HTMLPaidModalElement
     'payment-portal': HTMLPaymentPortalElement
-    'tokes-button': HTMLTokesButtonElement
     'modal-banner': HTMLModalBannerElement
     'modal-button': HTMLModalButtonElement
     'tokes-modal': HTMLTokesModalElement
+    'tokes-payments': HTMLTokesPaymentsElement
     'unpaid-modal': HTMLUnpaidModalElement
   }
 
@@ -288,10 +288,10 @@ declare global {
     'currency-modal': HTMLCurrencyModalElement;
     'paid-modal': HTMLPaidModalElement;
     'payment-portal': HTMLPaymentPortalElement;
-    'tokes-button': HTMLTokesButtonElement;
     'modal-banner': HTMLModalBannerElement;
     'modal-button': HTMLModalButtonElement;
     'tokes-modal': HTMLTokesModalElement;
+    'tokes-payments': HTMLTokesPaymentsElement;
     'unpaid-modal': HTMLUnpaidModalElement;
   }
 
