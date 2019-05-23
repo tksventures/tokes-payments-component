@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Tokes Payments Component Demo</title>
   <script src="/build/tokes-payments-component.js"></script>
-
 </head>
 <body>
-
+  <style>
+    @font-face {
+      font-family: 'gotham black';
+      src: url('./assets/fonts/gotham-black.otf');
+      font-weight: 700;
+    }
+    .tokes-button {
+      outline: none;
+      border-radius: 20px;
+      color: white;
+      font-family: 'gotham black';
+      background: linear-gradient(45deg, #6a69fd, #ae48f1);
+    }
+  </style>
   <script>
     function orderUpdate(e) {
       const tokesButton = document.getElementById("tokes-demo-button");
@@ -18,7 +30,7 @@
     }
   </script>
   <input id="usdEntry" onchange="orderUpdate()" placeholder="Demo Order Amount (USD)" type="number" />
-  <tokes-button id="tokes-demo-button" url="http://localhost:4100" api-key="6f6903edc4274cdb94e0bdfa99a01628ad9529f3da7884c49c64b32b2a7f" reference-id="demo" usd="1.42"></tokes-button>
+  <tokes-payments id="tokes-demo-button" url="http://localhost:4100" api-key="6f6903edc4274cdb94e0bdfa99a01628ad9529f3da7884c49c64b32b2a7f" reference-id="demo" usd="1.42"></tokes-payments>
 
 </body>
 </html>

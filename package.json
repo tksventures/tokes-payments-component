@@ -1,7 +1,7 @@
 {
   "name": "tokes-payments-component",
   "version": "0.0.1",
-  "description": "Tokes Platform payments modal web component",
+  "description": "Tokes Platform payments Web Component",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/tokes.js",

@@ -1,1 +1,1 @@
-export { TokesButton } from './components/tokes-button/tokes-button';
+export { TokesPayments as TokesPaymentComponent } from './components/tokes-payments/tokes-payments';

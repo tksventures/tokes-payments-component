@@ -1,9 +1,9 @@
 import { Component, Prop, State, Element } from '@stencil/core';
 
 @Component({
-  tag: 'tokes-button',
+  tag: 'tokes-payments'
 })
-export class TokesButton {
+export class TokesPayments {
   @Element() el: HTMLStencilElement;
 
   /**
@@ -36,7 +36,7 @@ export class TokesButton {
     const { url, apiKey, referenceId, usd, closeModal } = this;
     return (
       <div>
-        <button onClick={() => this.showModal = true}>Pay with Tokes</button>
+        <button class="tokes-button" onClick={() => this.showModal = true}>Pay with Tokes</button>
           {this.showModal && 
           <payment-portal
             url={url}
