@@ -1,5 +1,5 @@
 # Tokes Payments Component
-A Web Component with functionality to accept payments with reference to your orders
+A Web Component with functionality to accept payments with reference to your orders.
 
 ### Prerequisites
 You will need access to a Tokes Payments API server and at least one valid API key and Callback URL registered on this server.
@@ -36,6 +36,7 @@ To use this component in your React, Angular, Vue, or Ember based app, [Follow T
 ```
 
 All props are required:
+
 | Prop | Description |
 | --- | --- |
 | `url` | URL where a Tokes Payments API server is running |
@@ -76,7 +77,7 @@ npm test
 If you need to verify the payments received, there are a few ways to do this:
 - Manually confirm the payment is received to your receiving address.
 - Query the payment's designated Blockchain Address to see if the funds were sent (Refer to docs to see how this is done via the protocol for the currency you are receiving, i.e. [Waves Address Transaction Query](https://docs.wavesplatform.com/en/waves-api-and-sdk/waves-node-rest-api/transactions.html#section-5040393571675bece5c1e06579164f3d))
-- (Recommended) Utilize the `tokes-payments-client` module to query the payment status directly.
+- _(Recommended)_ Utilize the `tokes-payments-client` module to query the payment status directly.
 #### Example Server-Side Verification
 ```js
 import TokesPaymentsClient from 'tokes-payments-client';
