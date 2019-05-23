@@ -1,0 +1,16 @@
+sudo: required
+language: node_js
+node_js:
+  - "11"
+before_install:
+  - npm i -g npm@6.9.0
+install:
+  - npm install
+script:
+  - npm run test
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    tags: true

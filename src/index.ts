@@ -1,0 +1,1 @@
+export { TokesButton } from './components/tokes-button/tokes-button';

@@ -1,0 +1,134 @@
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+.modal-window {
+  position: relative;
+  padding-top: 30px;
+  background-color: white;
+  transition: width 250ms ease;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  border-radius: 20px;
+  width: 355px;
+  input {
+    font-size: 0.875rem;
+  }
+  &.modal-success,
+  &.modal-danger,
+  &.modal-primary,
+  &.modal-info {
+    border-left: 0;
+    .modal-separator,
+    .modal-description-small {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    .modal-description-small {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &.modal-success {
+    background: @brand-grad-success;
+    box-shadow: 0 5px 30px rgba(24, 234, 145, 0.4);
+    .form-control input,
+    .dropdown-row.input-container {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+  &.modal-danger {
+    background: @brand-grad-danger;
+  }
+  &.modal-primary {
+    background: @brand-grad-primary;
+    box-shadow: 0 5px 30px rgba(106, 105, 254, 0.4);
+    .form-control input,
+    .dropdown-row .input-container {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+  }
+  &.modal-info {
+    background: @brand-grad-info;
+  }
+}
+
+.modal-window.active {
+  .amount-title {
+    color: white;
+    font-size: 14px;
+  }
+  .modal-title {
+    color: white;
+  }
+  .payment-status {
+    color: white;
+  }
+  .modal-subtitle {
+    color: white;
+    opacity: .66;
+  }
+  .modal-separator {
+    color: white;
+    opacity: .3;
+  }
+}
+
+.modal-wrapper {
+  transition: opacity 250ms ease;
+  height: 66vh;
+  min-height: 420px;
+  display: flex;
+}
+
+.amount-title {
+  font-family: 'gotham black';
+  font-size: 17px;
+  color: @purple;
+}
+
+.modal-body {
+  width: 80%;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: none;
+}
+
+.modal-title {
+  font-family: 'gotham';
+  font-size: 14px;
+  margin: 10px;
+  color: @black-light;
+  text-align: center;
+}
+
+.modal-subtitle {
+  font-family: 'gotham';
+  font-size: 14px;
+  text-align: center;
+  color: @gray-darkest;
+}
+
+.payment-status {
+  font-family: 'gotham black';
+  font-size: 28px;
+  text-align: center;
+  margin: 10px;
+  color: @brand-danger;
+  text-transform: uppercase;
+}
+
+.modal-separator {
+  width: 315px;
+  height: 1px;
+  background: @gray-white;
+}
+
+.modal-footer {
+  width: 90%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
