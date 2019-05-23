@@ -45,6 +45,7 @@ export const statusIcons = {
 
 export const kAssetIds = {
   TKS: 'BDMRyZsmDZpgKhdM7fUTknKcUbVVkDpMcqEj31PUzjMy',
+  WAVES: 'WAVES',
 };
 
 export const watchInterval = 2500;
