@@ -1,0 +1,62 @@
+.modal-banner {
+  position: absolute;
+  background: @brand-grad-primary;
+  width: 300px;
+  height: 59px;
+  top: -30px;
+  margin-left: -150px;
+  border-radius: 100px;
+}
+
+.modal-banner.active {
+  background: white;
+  &.modal-primary {
+    .modal-banner-title,
+    .modal-banner-subtitle {
+      color: @purple;
+    }
+  }
+  &.modal-success {
+    .modal-banner-title,
+    .modal-banner-subtitle {
+      color: @brand-success;
+    }
+  }
+  &.modal-danger {
+    .modal-banner-title,
+    .modal-banner-subtitle {
+      color: @brand-danger;
+    }
+  }
+  &.modal-info {
+    .modal-banner-title,
+    .modal-banner-subtitle {
+      color: @brand-info;
+    }
+  }
+}
+
+.modal-banner-icon {
+  position: absolute;
+  left: 20px;
+  top: 13px;
+}
+
+.modal-banner-title {
+  font-family: 'gotham black';
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  left: 60px;
+  top: 10px;
+}
+
+.modal-banner-subtitle {
+  font-family: 'gotham';
+  font-size: 9px;
+  color: white;
+  opacity: .5;
+  position: absolute;
+  left: 60px;
+  bottom: 12px;
+}

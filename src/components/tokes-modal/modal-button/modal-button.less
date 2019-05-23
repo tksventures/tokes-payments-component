@@ -1,0 +1,47 @@
+.modal-button {
+  font-family: 'gotham';
+  font-size: 17px;
+  width: 132px;
+  height: 73px;
+  border-radius: 20px;
+  color: @gray-lighter;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success {
+  background: @brand-grad-success;
+  box-shadow: @brand-shadow-success;
+}
+
+.info {
+  background: @brand-grad-info;
+  box-shadow: @brand-shadow-info;
+}
+
+.primary {
+  background: @brand-grad-primary;
+  box-shadow: @brand-shadow-primary;
+}
+
+.danger {
+  background: @brand-grad-danger;
+  box-shadow: @brand-shadow-danger;
+}
+
+.modal-button:disabled {
+  opacity: 0.35;
+  &:hover {
+    cursor: default !important;
+    text-shadow: none !important;
+  }
+}
+
+.modal-button:hover {
+  text-shadow: 0px 0px 5px @gray-light;
+  text-decoration: none;
+}

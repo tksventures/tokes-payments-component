@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Tokes Payments Component Demo</title>
+  <script src="/build/tokes-payments-component.js"></script>
+
+</head>
+<body>
+
+  <script>
+    function orderUpdate(e) {
+      const tokesButton = document.getElementById("tokes-demo-button");
+      const demoInput = document.getElementById("usdEntry");
+      tokesButton.setAttribute('usd', demoInput.value || 4.20); // Would be injected from order data
+      tokesButton.setAttribute('reference-id', Math.floor(Math.random() * 42000)); // Would be a reference to your unique order id
+    }
+  </script>
+  <input id="usdEntry" onchange="orderUpdate()" placeholder="Demo Order Amount (USD)" type="number" />
+  <tokes-button id="tokes-demo-button" url="http://localhost:4100" api-key="6f6903edc4274cdb94e0bdfa99a01628ad9529f3da7884c49c64b32b2a7f" reference-id="demo" usd="1.42"></tokes-button>
+
+</body>
+</html>
