@@ -2,7 +2,7 @@
 A Web Component with functionality to accept payments with reference to your orders.
 
 ### Prerequisites
-You will need access to a Tokes Payments API server and at least one valid API key and Callback URL registered on this server.
+You will need access to a Tokes Payments API server and at least one valid API key and Webhook URL registered on this server.
 
 ## Installation
 There are multiple ways to add this component to your app:
@@ -41,7 +41,7 @@ All props are required:
 | --- | --- |
 | `url` | URL where a Tokes Payments API server is running |
 | `api-key` | Your *Public* API Key registered on the server  |
-| `reference-id` | A reference to the Order this payment is for. If there is none, insert a unique random string to refer to in a callback verification |
+| `reference-id` | A reference to the Order this payment is for. If there is none, insert a unique random string to refer to in a webhook verification |
 | `usd` | The amount in USD that you want the payment request to load with |
 
 ### Contributing
@@ -54,7 +54,7 @@ npm test
 
 ## Usage
 - Ensure you have a [properly configured](#configuration) component and up-to-date merchant account.
-- When users of your app make a payment, your callback URL will receive data regarding the current status.  This allows your app to verify the payment was received to your account.
+- When users of your app make a payment, your webhook URL will receive data regarding the current status.  This allows your app to verify the payment was received to your account.
 
 ### Example
 ```html
@@ -90,7 +90,7 @@ const tokesClient = TokesPaymentsClient({
 
 export function registerRoutes (app) {
   /**
-  * Setup a route to receive callbacks from payment activity
+  * Setup a route to receive webhooks from payment activity
   * The body of the request will contain the latest payment data
   */
   app.post('/tokes/payments', async (req) => {
