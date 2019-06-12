@@ -10,10 +10,11 @@ import { watchInterval, orderDefault, paymentDefault } from '../../constants';
   styleUrl: 'payment-portal.css',
 })
 export class PaymentPortal {
-  /**
-   * URL to lookup payment data
-   */
-  @Prop() url: string;
+  @State() navState: NavState = NavState.Initialize;
+  @State() orderData: Order = null;
+  @State() paymentData: Payment = null;
+  @State() statusMessage: string;
+  @State() watcher: any;
 
   /**
    * API Key for merchant
@@ -21,29 +22,38 @@ export class PaymentPortal {
   @Prop() apiKey: string;
 
   /**
+   * Close payment portal
+   */
+  @Prop() closeModal: () => void;
+
+  /**
    * Order ID for previously setup order
    */
   @Prop() referenceId: string;
+
+  /**
+   * URL to lookup payment data
+   */
+  @Prop() url: string;
 
   /**
    * Total price in USD for order
    */
   @Prop() usd: number;
 
-  /**
-   * Close payment portal
-   */
-  @Prop() closeModal: () => void;
-
-  @State() watcher: any;
-  @State() orderData: Order = null;
-  @State() paymentData: Payment = null;
-  @State() navState: NavState = NavState.Initialize;
-  @State() statusMessage: string;
-
   async componentDidLoad() {
     await this.initOrder();
     this.initWatcher();
+  }
+
+  @Listen('exit')
+  exit() {
+    this.closeModal();
+  }
+
+  @Listen('navigate')
+  navigateEvent(event: CustomEvent) {
+    this.navigate(event.detail);
   }
 
   /**
@@ -99,10 +109,27 @@ export class PaymentPortal {
     }, watchInterval);
   }
 
-  selectCurrency(currency) {
-    const { orderData } = this;
-    if (currency === orderData.currency) return;
-    this.orderData = { ...orderData, currency };
+  navigate(navState: NavState) {
+    this.navState = navState;
+  }
+
+  /**
+   * Get the latest order and payment data
+   */
+  async refreshOrder() {
+    const { url, apiKey, referenceId } = this;
+    try {
+      const { success, order, payment } = await orderStatus(url, apiKey, referenceId);
+      if (success) {
+        this.orderData = order;
+        this.paymentData = payment;
+      }
+
+      return true;
+    } catch (er) {
+      console.error(er);
+      return false;
+    }
   }
 
   /**
@@ -132,43 +159,16 @@ export class PaymentPortal {
     }
   }
 
-  /**
-   * Get the latest order and payment data
-   */
-  async refreshOrder() {
-    const { url, apiKey, referenceId } = this;
-    try {
-      const { success, order, payment } = await orderStatus(url, apiKey, referenceId);
-      if (success) {
-        this.orderData = order;
-        this.paymentData = payment;
-      }
-
-      return true;
-    } catch (er) {
-      console.error(er);
-      return false;
-    }
+  selectCurrency(currency) {
+    const { orderData } = this;
+    if (currency === orderData.currency) return;
+    this.orderData = { ...orderData, currency };
   }
 
   totalFailure(message: string): void {
     this.statusMessage = message;
     this.paymentData.payment_status_id = PaymentStatus.Failed;
     this.navigate(NavState.Complete);
-  }
-
-  @Listen('navigate')
-  navigateEvent(event: CustomEvent) {
-    this.navigate(event.detail);
-  }
-
-  navigate(navState: NavState) {
-    this.navState = navState;
-  }
-
-  @Listen('exit')
-  exit() {
-    this.closeModal();
   }
 
   render() {

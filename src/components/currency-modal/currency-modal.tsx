@@ -10,12 +10,12 @@ import { paymentProviders } from '../../constants';
 })
 export class CurrencyModal {
   @Element() modal: CurrencyModal;
-  @Prop() url: string;
   @Prop() apiKey: string;
-  @Prop() referenceId: string;
   @Prop() orderData: Order = null;
-  @Prop() selectCurrency: (currency: string) => void;
+  @Prop() referenceId: string;
   @Prop() registerOrder: () => void;
+  @Prop() selectCurrency: (currency: string) => void;
+  @Prop() url: string;
   @Event() exit: EventEmitter;
 
   render() {
