@@ -10,13 +10,13 @@ import { NavState, Order, Payment, PaymentStatus } from '../../types';
 })
 export class UnpaidModal {
   @Element() modal: HTMLElement;
-  @Prop() url: string;
   @Prop() apiKey: string;
-  @Prop() referenceId: string;
   @Prop() orderData: Order;
   @Prop() paymentData: Payment;
-  @Event() navigate: EventEmitter;
+  @Prop() referenceId: string;
+  @Prop() url: string;
   @Event() exit: EventEmitter;
+  @Event() navigate: EventEmitter;
 
   componentDidUpdate() {
     const { paymentData } = this;

@@ -6,8 +6,8 @@ import classNames from 'classnames';
   styleUrl: 'modal-banner.less',
 })
 export class ModalBanner {
-  @Prop() metaStyle: string;
   @Prop() active: boolean;
+  @Prop() metaStyle: string;
 
   render() {
     const { active } = this;

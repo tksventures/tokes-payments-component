@@ -6,8 +6,8 @@ import classNames from 'classnames';
   styleUrl: 'modal-button.less',
 })
 export class ModalButton {
-  @Prop() metaStyle: string;
   @Prop() action: () => void;
+  @Prop() metaStyle: string;
 
   render() {
     return (

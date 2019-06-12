@@ -6,11 +6,8 @@ import { Component, Prop, State, Element } from '@stencil/core';
 export class TokesPayments {
   @Element() el: HTMLStencilElement;
 
-  /**
-   * URL to lookup payment data
-   */
-  @Prop() url: string;
-
+  @State() showModal: boolean = false;
+  
   /**
    * API Key for merchant
    */
@@ -22,11 +19,14 @@ export class TokesPayments {
   @Prop() referenceId: string;
 
   /**
+   * URL to lookup payment data
+   */
+  @Prop() url: string;
+
+  /**
    * Total price in USD for order
    */
   @Prop() usd: number;
-
-  @State() showModal: boolean = false;
 
   closeModal() {
     this.showModal = false;

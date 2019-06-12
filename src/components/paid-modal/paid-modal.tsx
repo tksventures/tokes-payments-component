@@ -11,14 +11,14 @@ import { NavState, Order, Payment, PaymentStatus } from '../../types';
 })
 export class PaidModal {
   @Element() modal: HTMLElement;
-  @Prop() url: string;
   @Prop() apiKey: string;
-  @Prop() referenceId: string;
   @Prop() orderData: Order;
   @Prop() paymentData: Payment;
+  @Prop() referenceId: string;
   @Prop() statusMessage: string;
-  @Event() navigate: EventEmitter;
+  @Prop() url: string;
   @Event() exit: EventEmitter;
+  @Event() navigate: EventEmitter;
 
   componentDidLoad() {
     const { paymentData } = this;
@@ -27,18 +27,13 @@ export class PaidModal {
     }
   }
 
-  statusIcon(status) {
-    const { clock, check } = statusIcons;
-    return {
-      [PaymentStatus.Unpaid]: clock,
-      [PaymentStatus.Processing]: clock,
-      [PaymentStatus.Confirmed]: check,
-      [PaymentStatus.Paid]: check,
-      [PaymentStatus.Settled]: check,
-      [PaymentStatus.Failed]: clock,
-      [PaymentStatus.Archived]: clock,
-      [PaymentStatus.Cancelled]: clock,
-    }[status];
+  amountStatus(status) {
+    if (status === PaymentStatus.Failed) return 'Failed';
+    return status === PaymentStatus.Processing ? 'Processing' : 'Paid';
+  }
+
+  buttonStyle(status) {
+    return status === PaymentStatus.Failed ? 'primary' : 'danger';
   }
 
   modalStyle(status) {
@@ -53,13 +48,18 @@ export class PaidModal {
     }[status];
   }
 
-  buttonStyle(status) {
-    return status === PaymentStatus.Failed ? 'primary' : 'danger';
-  }
-
-  amountStatus(status) {
-    if (status === PaymentStatus.Failed) return 'Failed';
-    return status === PaymentStatus.Processing ? 'Processing' : 'Paid';
+  statusIcon(status) {
+    const { clock, check } = statusIcons;
+    return {
+      [PaymentStatus.Unpaid]: clock,
+      [PaymentStatus.Processing]: clock,
+      [PaymentStatus.Confirmed]: check,
+      [PaymentStatus.Paid]: check,
+      [PaymentStatus.Settled]: check,
+      [PaymentStatus.Failed]: clock,
+      [PaymentStatus.Archived]: clock,
+      [PaymentStatus.Cancelled]: clock,
+    }[status];
   }
 
   txStatus(status, txId) {

@@ -6,8 +6,8 @@ import classNames from 'classnames';
   styleUrl: 'tokes-modal.less',
 })
 export class TokesModal {
-  @Prop() metaStyle: string;
   @Prop() active: boolean;
+  @Prop() metaStyle: string;
 
   render() {
     const { metaStyle, active } = this;
