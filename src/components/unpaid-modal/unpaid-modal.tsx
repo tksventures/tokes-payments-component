@@ -1,4 +1,5 @@
-import { Component, Prop, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, Element, Event, EventEmitter, State, h } from '@stencil/core';
+import QRCode from 'qrcode';
 
 import Tunnel from '../config';
 import { uriFormat } from '../../utils/utils';
@@ -17,11 +18,26 @@ export class UnpaidModal {
   @Prop() url: string;
   @Event() exit: EventEmitter;
   @Event() navigate: EventEmitter;
+  @State() qrCodeData: string;
 
   componentDidUpdate() {
     const { paymentData } = this;
     if (paymentData && paymentData.payment_status_id !== PaymentStatus.Unpaid) {
       this.navigate.emit(NavState.Complete);
+    }
+    this.updateQrCode();
+  }
+
+  async updateQrCode() {
+    const { paymentData, orderData } = this;
+    if (!paymentData) return;
+
+    const paymentURL = uriFormat(paymentData, orderData.rates);
+
+    try {
+      this.qrCodeData = await QRCode.toDataURL(paymentURL, { width: 250, margin: 0 });
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -33,8 +49,6 @@ export class UnpaidModal {
 
     const { currency, payment_address } = paymentData;
     const { rates } = orderData;
-    const paymentURL = encodeURIComponent(uriFormat(paymentData, rates));
-    const paymentQRCode = `https://api.qrserver.com/v1/create-qr-code/?data=${paymentURL}&size=250x250`;
 
     return [
       <tokes-modal>
@@ -45,7 +59,7 @@ export class UnpaidModal {
             <aside class="modal-subtitle">Or send {rates[currency]} {currency} to: <br />{payment_address}</aside>
           </p>
           <div class="modal-qr">
-            <img src={paymentQRCode} alt="QR Code" />
+            <img src={this.qrCodeData} alt="QR Code" />
           </div>
           <div class="payment-status">UNPAID</div>
         </div>

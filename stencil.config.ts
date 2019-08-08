@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { less } from '@stencil/less';
+import builtins from 'rollup-plugin-node-builtins';
 
 export const config: Config = {
   namespace: 'tokes-payments-component',
@@ -8,7 +9,8 @@ export const config: Config = {
       injectGlobalPaths: [
         'src/globals/variables.less',
       ]
-    })
+    }),
+    builtins()
   ],
   outputTargets:[
     { type: 'dist' },

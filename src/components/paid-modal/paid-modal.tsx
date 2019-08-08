@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, Element, Event, EventEmitter, h } from '@stencil/core';
 
 import Tunnel from '../config';
 import { statusIcons } from '../../constants';
