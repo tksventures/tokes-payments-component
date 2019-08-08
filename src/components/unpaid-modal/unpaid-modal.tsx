@@ -11,6 +11,7 @@ import { NavState, Order, Payment, PaymentStatus } from '../../types';
 })
 export class UnpaidModal {
   @Element() modal: HTMLElement;
+  @State() qrCodeData: string;
   @Prop() apiKey: string;
   @Prop() orderData: Order;
   @Prop() paymentData: Payment;
@@ -18,7 +19,6 @@ export class UnpaidModal {
   @Prop() url: string;
   @Event() exit: EventEmitter;
   @Event() navigate: EventEmitter;
-  @State() qrCodeData: string;
 
   componentDidUpdate() {
     const { paymentData } = this;
