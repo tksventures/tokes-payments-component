@@ -1,4 +1,4 @@
-import { Component, Prop, State, Listen } from '@stencil/core';
+import { Component, Prop, State, Listen, h } from '@stencil/core';
 
 import Tunnel from '../config';
 import { orderStatus, paymentRequest } from '../../lib/payments';

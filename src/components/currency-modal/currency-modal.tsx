@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, Element, Event, EventEmitter, h } from '@stencil/core';
 
 import Tunnel from '../config';
 import { Order } from '../../types';
@@ -29,7 +29,7 @@ export class CurrencyModal {
             <currency-button 
               currency={provider.id} 
               isSelected={this.orderData.currency === provider.id}
-              onSelect={this.selectCurrency}
+              onCurrencySelect={this.selectCurrency}
             />
           ))}
           <div class="placeholder-option" />
