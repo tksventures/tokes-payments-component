@@ -2,7 +2,7 @@
 A Web Component with functionality to accept payments with reference to your orders.
 
 ### Prerequisites
-You will need access to a Tokes Payments API server and at least one valid API key and Webhook URL registered on this server.
+You will need access to a Tokes Payments API server and at least one valid API key and Webhook URL registered on this server. Register at https://gateway.tokesplatform.org.
 
 ## Installation
 There are multiple ways to add this component to your app:
