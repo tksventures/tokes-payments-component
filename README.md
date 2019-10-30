@@ -13,7 +13,7 @@ To use this component in your React, Angular, Vue, or Ember based app, [Follow T
 `Tokes Payments Component` only relies on primitive data to be supplied to it, so these custom elements will work within your HTML.
 
 ### Script tag
-- Put a script tag similar to this `<script src='https://unpkg.com/tokes-payments-component@0.1.0/dist/tokes-payments-component.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://unpkg.com/tokes-payments-component@0.1.1/dist/tokes-payments-component.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 ### Node Modules
@@ -61,7 +61,7 @@ npm test
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
-  <script src='https://unpkg.com/tokes-payments-component@0.1.0/dist/tokes-payments-component.js'></script>
+  <script src='https://unpkg.com/tokes-payments-component@0.1.1/dist/tokes-payments-component.js'></script>
 </head>
 <body>
   <tokes-payments 

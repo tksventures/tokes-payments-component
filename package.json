@@ -1,12 +1,20 @@
 {
   "name": "tokes-payments-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tokes Platform payments Web Component",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/tokes.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tksventures/tokes-payments-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tksventures/tokes-payments-component/issues"
+  },
+  "homepage": "https://github.com/tksventures/tokes-payments-component#readme",
   "files": [
     "dist/"
   ],
