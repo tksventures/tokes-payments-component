@@ -1,5 +1,5 @@
 import { Component, Prop, Element, Event, EventEmitter, State, h } from '@stencil/core';
-import QRCode from 'qrcode';
+import QRCode from 'qrcode-generator';
 
 import Tunnel from '../config';
 import { uriFormat } from '../../utils/utils';
@@ -35,7 +35,10 @@ export class UnpaidModal {
     const paymentURL = uriFormat(paymentData, orderData.rates);
 
     try {
-      this.qrCodeData = await QRCode.toDataURL(paymentURL, { width: 250, margin: 0 });
+      var qr = QRCode(0, 'H')
+      qr.addData(paymentURL);
+      qr.make();
+      this.qrCodeData = qr.createSvgTag({ margin: 0, scalable: true });
     } catch (err) {
       console.error(err)
     }
@@ -58,9 +61,7 @@ export class UnpaidModal {
           <p class="modal-title">Scan QR Code Below to Complete Payment<br />
             <aside class="modal-subtitle">Or send {rates[currency]} {currency} to: <br />{payment_address}</aside>
           </p>
-          <div class="modal-qr">
-            <img src={this.qrCodeData} alt="QR Code" />
-          </div>
+          <div class="modal-qr" innerHTML={this.qrCodeData} />
           <div class="payment-status">UNPAID</div>
         </div>
         <div class="modal-separator" />

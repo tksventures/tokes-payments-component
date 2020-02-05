@@ -1,10 +1,9 @@
 {
   "name": "tokes-payments-component",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Tokes Platform payments Web Component",
-  "module": "dist/esm/index.js",
-  "main": "dist/index.js",
-  "unpkg": "dist/tokes.js",
+  "main": "dist/tokes-payments-component.js",
+  "unpkg": "dist/tokes-payments-component.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "repository": {
@@ -28,19 +27,19 @@
   "dependencies": {
     "@stencil/state-tunnel": "1.0.1",
     "classnames": "^2.2.6",
-    "qrcode": "^1.4.1",
+    "qrcode-generator": "^1.4.4",
     "stencil-styled-components": "^1.4.0"
   },
   "devDependencies": {
-    "@stencil/core": "^1.2.4",
+    "@stencil/core": "^1.8.7",
     "@stencil/less": "^1.0.0",
-    "@types/jest": "24.0.17",
-    "@types/puppeteer": "1.19.0",
-    "jest": "24.8.0",
-    "jest-cli": "24.8.0",
-    "puppeteer": "1.19.0",
+    "@types/jest": "25.1.1",
+    "@types/puppeteer": "2.0.0",
+    "jest": "25.1.0",
+    "jest-cli": "25.1.0",
+    "puppeteer": "2.1.1",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "tslint": "^5.18.0",
+    "tslint": "^6.0.0",
     "tslint-stencil": "^1.0.1"
   }
 }
