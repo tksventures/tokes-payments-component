@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Tokes Platform payments Web Component",
   "main": "dist/tokes-payments-component.js",
+  "module": "dist/tokes-payments-component.js",
   "unpkg": "dist/tokes-payments-component.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
@@ -15,7 +16,8 @@
   },
   "homepage": "https://github.com/tksventures/tokes-payments-component#readme",
   "files": [
-    "dist/"
+    "dist/",
+    "loader/"
   ],
   "scripts": {
     "build": "stencil build --docs",
@@ -31,7 +33,7 @@
     "stencil-styled-components": "^1.4.0"
   },
   "devDependencies": {
-    "@stencil/core": "^1.8.7",
+    "@stencil/core": "^1.12.1",
     "@stencil/less": "^1.0.0",
     "@types/jest": "25.1.1",
     "@types/puppeteer": "2.0.0",
@@ -40,6 +42,7 @@
     "puppeteer": "2.1.1",
     "rollup-plugin-node-builtins": "^2.1.2",
     "tslint": "^6.0.0",
-    "tslint-stencil": "^1.0.1"
+    "tslint-stencil": "^1.0.1",
+    "workbox-build": "4.3.1"
   }
 }

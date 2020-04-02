@@ -53,6 +53,10 @@ export class UnpaidModal {
     const { currency, payment_address } = paymentData;
     const { rates } = orderData;
 
+    if (!this.qrCodeData) {
+      this.updateQrCode();
+    }
+
     return [
       <tokes-modal>
         <h1 class="amount-title">Amount owed: {rates[currency]} {currency}</h1>
