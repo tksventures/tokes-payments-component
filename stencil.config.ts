@@ -15,7 +15,11 @@ export const config: Config = {
   outputTargets:[
     { type: 'dist' },
     { type: 'docs' },
-    { type: 'www' }
+    { type: 'www' },
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader'
+    }
   ],
   enableCache: false,
   globalStyle: 'src/globals/app.css'
