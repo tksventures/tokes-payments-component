@@ -29,7 +29,7 @@ export class CurrencyModal {
             <currency-button 
               currency={provider.id} 
               isSelected={this.orderData.currency === provider.id}
-              onCurrencySelect={this.selectCurrency}
+              selectCurrency={this.selectCurrency}
             />
           ))}
           <div class="placeholder-option" />
