@@ -44,7 +44,7 @@ export const statusIcons = {
 }
 
 export const kAssetIds = {
-  TKS: 'BDMRyZsmDZpgKhdM7fUTknKcUbVVkDpMcqEj31PUzjMy',
+  TKS: 'ATrsNse6UZwNSMruNKsR4bnoTsp89BvLMmBZECRcPoif',
   WAVES: 'WAVES',
 };
 
