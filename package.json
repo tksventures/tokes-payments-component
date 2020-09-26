@@ -1,6 +1,6 @@
 {
   "name": "tokes-payments-component",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Tokes Platform payments Web Component",
   "main": "dist/tokes-payments-component.js",
   "module": "dist/tokes-payments-component.js",
