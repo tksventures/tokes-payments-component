@@ -14,7 +14,7 @@ export const config: Config = {
   ],
   outputTargets:[
     { type: 'dist' },
-    { type: 'docs' },
+    { type: 'docs-readme' },
     { type: 'www' },
     {
       type: 'dist',

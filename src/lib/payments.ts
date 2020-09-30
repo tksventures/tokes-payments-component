@@ -30,7 +30,16 @@ export async function orderStatus(url: string, apiKey: string, referenceId: stri
   } catch (er) {
     throw new Error(er);
   }
-} 
+}
+
+export async function supportedCurrencies(url: string, apiKey: string) {
+  try {
+    const response = await get(`${url}/api/merchant/address`, apiKey);
+    return response.json();
+  } catch (er) {
+    throw new Error(er);
+  }
+}
 
 export async function paymentRequest(url: string, apiKey: string, orderData: Order) {
   try {
