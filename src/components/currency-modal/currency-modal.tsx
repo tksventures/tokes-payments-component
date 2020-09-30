@@ -1,7 +1,8 @@
-import { Component, Prop, Element, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Prop, Element, Event, EventEmitter, h, State } from '@stencil/core';
 
 import Tunnel from '../config';
-import { Order } from '../../types';
+import { Order, PaymentProvider } from '../../types';
+import { supportedCurrencies } from '../../lib/payments';
 import { paymentProviders } from '../../constants';
 
 @Component({
@@ -10,6 +11,7 @@ import { paymentProviders } from '../../constants';
 })
 export class CurrencyModal {
   @Element() modal: CurrencyModal;
+  @State() supportedProviders: PaymentProvider[] = [];
   @Prop() apiKey: string;
   @Prop() orderData: Order = null;
   @Prop() referenceId: string;
@@ -18,6 +20,14 @@ export class CurrencyModal {
   @Prop() url: string;
   @Event() exit: EventEmitter;
 
+  async componentDidLoad() {
+    const addresses = await supportedCurrencies(this.url, this.apiKey);
+    const filteredProviders = [];
+    Object.keys(addresses)
+      .forEach(currency => paymentProviders[currency] && filteredProviders.push(paymentProviders[currency]));
+    this.supportedProviders = filteredProviders;
+  }
+
   render() {
     return [
       <tokes-modal>
@@ -25,7 +35,7 @@ export class CurrencyModal {
         <div class="modal-separator" />
         <p class="modal-title">Select Payment Method</p>
         <div class="currency-button-wrapper">
-          {this.orderData && Object.values(paymentProviders).map(provider => (
+          {this.orderData && Object.values(this.supportedProviders).map(provider => (
             <currency-button 
               currency={provider.id} 
               isSelected={this.orderData.currency === provider.id}
