@@ -9,10 +9,9 @@
   transition: width 250ms ease;
   display: inline-flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 8px;
   width: 355px;
   input {
     font-size: 0.875rem;
@@ -84,9 +83,14 @@
 }
 
 .amount-title {
-  font-family: 'gotham black';
+  font-family: 'gotham';
   font-size: 23px;
   color: @black-soft;
+}
+
+.amount-title.small-title {
+  font-size: 14px;
+  padding: 12px;
 }
 
 .modal-body {
@@ -126,9 +130,13 @@
   background: @gray-white;
 }
 
+.modal-separator.end-separator {
+  margin-top: auto;
+}
+
 .modal-footer {
   width: 90%;
-  padding: 20px;
+  padding: 33px 0px;
   display: flex;
   justify-content: space-around;
 }

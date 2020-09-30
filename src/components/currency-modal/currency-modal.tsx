@@ -34,7 +34,7 @@ export class CurrencyModal {
           ))}
           <div class="placeholder-option" />
         </div>
-        <div class="modal-separator" />
+        <div class="modal-separator end-separator" />
         <div class="modal-footer">
           <modal-button action={() => this.exit.emit()} metaStyle="danger">Cancel</modal-button>
           <modal-button action={this.registerOrder} metaStyle="success">Next</modal-button>

@@ -59,7 +59,7 @@ export class UnpaidModal {
 
     return [
       <tokes-modal>
-        <h1 class="amount-title">Amount owed: {rates[currency]} {currency}</h1>
+        <h1 class="amount-title small-title">Amount owed: {rates[currency]} {currency}</h1>
         <div class="modal-separator" />
         <div class="modal-body">
           <p class="modal-title">Scan QR Code Below to Complete Payment<br />
@@ -68,7 +68,7 @@ export class UnpaidModal {
           <div class="modal-qr" innerHTML={this.qrCodeData} />
           <div class="payment-status">UNPAID</div>
         </div>
-        <div class="modal-separator" />
+        <div class="modal-separator end-separator" />
         <div class="modal-footer">
           <modal-button action={() => this.exit.emit()} metaStyle="danger">Cancel</modal-button>
           <modal-button action={() => this.navigate.emit(NavState.Setup)} metaStyle="primary">Back</modal-button>
