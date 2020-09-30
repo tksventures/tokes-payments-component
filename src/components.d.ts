@@ -68,6 +68,14 @@ export namespace Components {
          */
         "apiKey": string;
         /**
+          * Button Inner HTML
+         */
+        "buttonContent": string;
+        /**
+          * Button disabled parameter
+         */
+        "disabled": boolean;
+        /**
           * Reference ID for order
          */
         "referenceId": string;
@@ -219,6 +227,14 @@ declare namespace LocalJSX {
           * API Key for merchant
          */
         "apiKey"?: string;
+        /**
+          * Button Inner HTML
+         */
+        "buttonContent"?: string;
+        /**
+          * Button disabled parameter
+         */
+        "disabled"?: boolean;
         /**
           * Reference ID for order
          */
