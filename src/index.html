@@ -31,7 +31,9 @@
     }
   </script>
   <input id="usdEntry" onchange="orderUpdate()" placeholder="Demo Order Amount (USD)" type="number" />
-  <tokes-payments disabled="true" button-content="Pay With Crypto" id="tokes-demo-button" url="http://localhost:4100" api-key="6f6903edc4274cdb94e0bdfa99a01628ad9529f3da7884c49c64b32b2a7f" reference-id="demo" usd="1.42"></tokes-payments>
+  <tokes-payments disabled="false" id="tokes-demo-button" url="http://localhost:4100" api-key="6f6903edc4274cdb94e0bdfa99a01628ad9529f3da7884c49c64b32b2a7f" reference-id="demo" usd="1.42">
+    <span slot="button-content">Pay With Crypto</span>
+  </tokes-payments>
 
 </body>
 </html>
