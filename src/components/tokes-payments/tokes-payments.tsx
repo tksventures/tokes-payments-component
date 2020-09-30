@@ -26,6 +26,16 @@ export class TokesPayments {
    */
   @Prop() usd: number;
 
+  /**
+   * Button disabled parameter
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
+   * Button Inner HTML
+   */
+  @Prop() buttonContent: string = 'Pay with Crypto';
+
   closeModal() {
     this.showModal = false;
   }
@@ -34,7 +44,7 @@ export class TokesPayments {
     const { url, apiKey, referenceId, usd, closeModal } = this;
     return (
       <div>
-        <button class="tokes-button" onClick={() => this.showModal = true}>Pay with Crypto</button>
+        <button disabled={this.disabled} class="tokes-button" onClick={() => this.showModal = true}>{this.buttonContent}</button>
           {this.showModal && 
           <payment-portal
             url={url}
