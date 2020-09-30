@@ -12,6 +12,16 @@ export class TokesPayments {
   @Prop() apiKey: string;
 
   /**
+   * Button Inner HTML
+   */
+  @Prop() buttonContent: string = 'Pay with Crypto';
+
+  /**
+   * Button disabled parameter
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
    * Reference ID for order
    */
   @Prop() referenceId: string;
@@ -25,16 +35,6 @@ export class TokesPayments {
    * Total price in USD for order
    */
   @Prop() usd: number;
-
-  /**
-   * Button disabled parameter
-   */
-  @Prop() disabled: boolean = false;
-
-  /**
-   * Button Inner HTML
-   */
-  @Prop() buttonContent: string = 'Pay with Crypto';
 
   closeModal() {
     this.showModal = false;
