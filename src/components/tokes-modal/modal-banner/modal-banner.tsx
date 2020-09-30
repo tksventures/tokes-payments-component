@@ -13,9 +13,9 @@ export class ModalBanner {
     const { active } = this;
     return (
       <div class={classNames("modal-banner", this.metaStyle, { active })}>
-        <img class="modal-banner-icon" src="../assets/icons/provider-logo-TKS.svg" />
-        <div class="modal-banner-title">BUY WITH CRYPTO</div>
-        <div class="modal-banner-subtitle">POWERED BY TOKES PLATFORM</div>
+        <img class="modal-banner-icon" src="../assets/icons/mv-logo.svg" />
+        <div class="modal-banner-title">PAY WITH CRYPTO</div>
+        <div class="modal-banner-subtitle">POWERED BY MULTICHAIN VENTURES</div>
       </div>
     );
   }
