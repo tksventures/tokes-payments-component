@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Order, Payment, } from "./types";
+import { Order, Payment } from "./types";
 export namespace Components {
     interface CurrencyButton {
         "currency": string;

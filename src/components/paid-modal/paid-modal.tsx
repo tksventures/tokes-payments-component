@@ -33,7 +33,7 @@ export class PaidModal {
   }
 
   buttonStyle(status) {
-    return status === PaymentStatus.Failed ? 'primary' : 'danger';
+    return status === PaymentStatus.Failed ? 'danger' : 'info';
   }
 
   modalStyle(status) {
@@ -78,7 +78,7 @@ export class PaidModal {
 
     return [
       <tokes-modal active metaStyle={this.modalStyle(payment_status_id)}>
-        <h1 class="amount-title">Amount {paymentStatusMessage}: {tokenDecimal(payment_amount).toFixed(8)} {currency}</h1>
+        <h1 class="amount-title small-title">Amount {paymentStatusMessage}: {tokenDecimal(payment_amount).toFixed(8)} {currency}</h1>
         <div class="modal-separator" />
         <div class="modal-body">
           <p class="modal-title">Payment {paymentStatusMessage}<br />
@@ -87,7 +87,7 @@ export class PaidModal {
           <img class="modal-icon" src={this.statusIcon(payment_status_id)} />
           <div class="payment-status">{PaymentStatus[payment_status_id]}</div>
         </div>
-        <div class="modal-separator" />
+        <div class="modal-separator end-separator" />
         <div class="modal-footer">
           <modal-button action={() => this.exit.emit()} metaStyle={this.buttonStyle(payment_status_id)}>Close</modal-button>
         </div>
