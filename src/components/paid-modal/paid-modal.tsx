@@ -1,7 +1,7 @@
 import { Component, Prop, Element, Event, EventEmitter, h } from '@stencil/core';
 
 import Tunnel from '../config';
-import { statusIcons } from '../../constants';
+import { statusIcons, kTokenDecimals } from '../../constants';
 import { tokenDecimal } from '../../utils/utils';
 import { NavState, Order, Payment, PaymentStatus } from '../../types';
 
@@ -78,7 +78,7 @@ export class PaidModal {
 
     return [
       <tokes-modal active metaStyle={this.modalStyle(payment_status_id)}>
-        <h1 class="amount-title small-title">Amount {paymentStatusMessage}: {tokenDecimal(payment_amount).toFixed(8)} {currency}</h1>
+        <h1 class="amount-title small-title">Amount {paymentStatusMessage}: {tokenDecimal(payment_amount, kTokenDecimals[currency]).toFixed(kTokenDecimals[currency])} {currency}</h1>
         <div class="modal-separator" />
         <div class="modal-body">
           <p class="modal-title">Payment {paymentStatusMessage}<br />
