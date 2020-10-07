@@ -16,6 +16,8 @@ export function uriFormat(payment: Payment, rates: Rates): string {
     BTC: `bitcoin:${payment.payment_address}?amount=${rates.BTC}`,
     LTC: `litecoin:${payment.payment_address}?amount=${rates.LTC}`,
     DASH: `dash:${payment.payment_address}?amount=${rates.DASH}`,
+    XTZ: `tezos:${payment.payment_address}?amount=${rates.XTZ}`,
+    ETH: `ethereum:${payment.payment_address}?value=${payment.gross_amount}`,
   }[payment.currency];
 }
 
