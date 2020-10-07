@@ -36,7 +36,31 @@ export const paymentProviders: PaymentProviderDictionary = {
     type: 'crypto',
     icon: '../assets/icons/provider-logo-WAVES.svg',
   },
+  XTZ: {
+    name: 'Tezos',
+    id: 'XTZ',
+    active: true,
+    type: 'crypto',
+    icon: '../assets/icons/provider-logo-XTZ.svg',
+  },
+  ETH: {
+    name: 'Ethereum',
+    id: 'ETH',
+    active: true,
+    type: 'crypto',
+    icon: '../assets/icons/provider-logo-ETH.svg',
+  },
 };
+
+export const kTokenDecimals = {
+  BTC: 8,
+  LTC: 8,
+  DASH: 8,
+  WAVES: 8,
+  TKS: 8,
+  ETH: 18,
+  XTZ: 6,
+}
 
 export const statusIcons = {
   clock: '../assets/icons/clock.svg',
