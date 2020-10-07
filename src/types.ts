@@ -25,6 +25,8 @@ export interface Rates {
   LTC?: MarketRate,
   DASH?: MarketRate,
   WAVES?: MarketRate,
+  XTZ?: MarketRate,
+  ETH?: MarketRate,
 }
 
 export interface Order {
