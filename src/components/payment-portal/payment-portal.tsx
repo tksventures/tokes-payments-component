@@ -121,7 +121,10 @@ export class PaymentPortal {
     try {
       const { success, order, payment } = await orderStatus(url, apiKey, referenceId);
       if (success) {
-        this.orderData = order;
+        if (this.navState !== NavState.Setup ||
+          (payment && payment.payment_status_id !== this.paymentData.payment_status_id)) {
+          this.orderData = order;
+        }
         this.paymentData = payment;
       }
 
