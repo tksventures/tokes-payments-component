@@ -50,6 +50,27 @@ export const paymentProviders: PaymentProviderDictionary = {
     type: 'crypto',
     icon: '../assets/icons/provider-logo-ETH.svg',
   },
+  USDT: {
+    name: 'US Dollar (Tether)',
+    id: 'USDT',
+    active: true,
+    type: 'crypto',
+    icon: '../assets/icons/provider-logo-USDT.svg',
+  },
+  USDC: {
+    name: 'US Dollar Coin',
+    id: 'USDC',
+    active: true,
+    type: 'crypto',
+    icon: '../assets/icons/provider-logo-USDC.svg',
+  },
+  TUSD: {
+    name: 'TrueUSD',
+    id: 'TUSD',
+    active: true,
+    type: 'crypto',
+    icon: '../assets/icons/provider-logo-TUSD.svg',
+  },
 };
 
 export const kTokenDecimals = {
@@ -60,6 +81,9 @@ export const kTokenDecimals = {
   TKS: 8,
   ETH: 18,
   XTZ: 6,
+  USDT: 6,
+  USDC: 6,
+  TUSD: 18,
 }
 
 export const statusIcons = {
