@@ -27,6 +27,9 @@ export interface Rates {
   WAVES?: MarketRate,
   XTZ?: MarketRate,
   ETH?: MarketRate,
+  USDT?: MarketRate,
+  USDC?: MarketRate,
+  TUSD?: MarketRate,
 }
 
 export interface Order {
