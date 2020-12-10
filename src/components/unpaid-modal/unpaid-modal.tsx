@@ -12,8 +12,8 @@ import styles from '../styles';
 })
 export class UnpaidModal {
   @Element() modal: HTMLElement;
-  @State() statusMessage: string;
   @State() qrCodeData: string;
+  @State() statusMessage: string;
   @Prop() apiKey: string;
   @Prop() orderData: Order;
   @Prop() paymentData: Payment;
