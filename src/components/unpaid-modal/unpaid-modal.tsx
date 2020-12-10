@@ -4,6 +4,7 @@ import QRCode from 'qrcode-generator';
 import Tunnel from '../config';
 import { uriFormat } from '../../utils/utils';
 import { NavState, Order, Payment, PaymentStatus } from '../../types';
+import styles from '../styles';
 
 @Component({
   tag: 'unpaid-modal',
@@ -11,6 +12,7 @@ import { NavState, Order, Payment, PaymentStatus } from '../../types';
 })
 export class UnpaidModal {
   @Element() modal: HTMLElement;
+  @State() statusMessage: string;
   @State() qrCodeData: string;
   @Prop() apiKey: string;
   @Prop() orderData: Order;
@@ -44,8 +46,25 @@ export class UnpaidModal {
     }
   }
 
+  copyToClipboard(str: string, type: string) {
+    const el = document.createElement('textarea');
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+    this.statusMessage = `${type} Copied to Clipboard`;
+    setTimeout(() => {
+      this.statusMessage = null;
+    }, 1000);
+  }
+
   render() {
-    const { orderData, paymentData } = this;
+    const { orderData, paymentData, statusMessage } = this;
     if (!orderData || !paymentData || !orderData.rates || !paymentData.payment_address) {
       return <tokes-modal><h1 class="amount-title">Loading...</h1></tokes-modal>
     }
@@ -57,13 +76,20 @@ export class UnpaidModal {
       this.updateQrCode();
     }
 
+    const titleMessage = statusMessage || 'Scan QR Code Below to Complete Payment';
+    const titleColor = statusMessage ? styles.colors.widgetGreen : styles.colors.blackLight;
     return [
       <tokes-modal>
-        <h1 class="amount-title small-title">Amount owed: {rates[currency]} {currency}</h1>
+        <h1 class="amount-title small-title" style={{cursor: 'pointer'}} onClick={() => this.copyToClipboard(rates[currency], 'Payment Amount')}>
+          Amount owed: {rates[currency]} {currency}
+        </h1>
         <div class="modal-separator" />
         <div class="modal-body">
-          <p class="modal-title">Scan QR Code Below to Complete Payment<br />
-            <aside class="modal-subtitle">Or send {rates[currency]} {currency} to: <br />{payment_address}</aside>
+          <p class="modal-title" style={{color: titleColor}}>{titleMessage}<br />
+            <aside class="modal-subtitle">
+              <div onClick={() => this.copyToClipboard(rates[currency], 'Payment Amount')}>Or send {rates[currency]} {currency} to:</div>
+              <div onClick={() => this.copyToClipboard(payment_address, 'Blockchain Address')}>{payment_address}</div>
+            </aside>
           </p>
           <div class="modal-qr" innerHTML={this.qrCodeData} />
           <div class="payment-status">UNPAID</div>
