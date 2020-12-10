@@ -30,22 +30,6 @@ export class UnpaidModal {
     this.updateQrCode();
   }
 
-  async updateQrCode() {
-    const { paymentData, orderData } = this;
-    if (!paymentData) return;
-
-    const paymentURL = uriFormat(paymentData, orderData.rates);
-
-    try {
-      var qr = QRCode(0, 'H')
-      qr.addData(paymentURL);
-      qr.make();
-      this.qrCodeData = qr.createSvgTag({ margin: 0, scalable: true });
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
   copyToClipboard(str: string, type: string) {
     const el = document.createElement('textarea');
     el.value = str;
@@ -61,6 +45,22 @@ export class UnpaidModal {
     setTimeout(() => {
       this.statusMessage = null;
     }, 1000);
+  }
+
+  async updateQrCode() {
+    const { paymentData, orderData } = this;
+    if (!paymentData) return;
+
+    const paymentURL = uriFormat(paymentData, orderData.rates);
+
+    try {
+      var qr = QRCode(0, 'H')
+      qr.addData(paymentURL);
+      qr.make();
+      this.qrCodeData = qr.createSvgTag({ margin: 0, scalable: true });
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   render() {
